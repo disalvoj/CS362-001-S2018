@@ -298,7 +298,7 @@ public class DataHandler {
         }
         
         //Make sure that there is a limited number of recurrences
-        for (int i = 0; i < appt.getRecurNumber()+1; i++) {
+        for (int i = 0; i <= appt.getRecurNumber()+1; i++) { //BUG: i < appt.getRecurNumber()+1 --> i <= ...
             
             //Add the day of occurrence to the list if it is after the first day
             if (!occurrenceDay.before(firstDay)) {
@@ -351,7 +351,7 @@ public class DataHandler {
                 
                 //The user did specify weekly recurrence, so increment the
                 //day until it falls on a weekday the user specified
-                for (int k = 0; k < 7; k++) {
+                for (int k = 1; k < 7; k++) { // BUG: int k = 0 --> int k = 1
                     nextDay.add(nextDay.DAY_OF_MONTH, 1);
                     int newDayOfWeek = nextDay.get(nextDay.DAY_OF_WEEK);
                 

@@ -64,7 +64,7 @@ public class CalDay {
 	
 		setAppts(new LinkedList<Appt>());
 	
-		valid = true;
+		valid = false; // BUG: true --> false
 	}
 	
 	/**
@@ -127,13 +127,13 @@ public class CalDay {
 	}
 	
 	/** Sets month */
-	private void setMonth(int month) {
-	    this.month = month;
+	private void setMonth(int year) { // BUG: month --> year
+	    this.month = year; // BUG: month --> year
 	}
 	
 	/** Sets year */
-	private void setYear(int year) {
-	    this.year = year;
+	private void setYear(int month) { // BUG: year --> month
+	    this.year = month; // BUG: year --> month
 	}
 	
 	/** Gets appts */
