@@ -66,15 +66,20 @@ public class ApptRandomTest {
 	//			System.out.println(" Seed:"+randomseed );
 				Random random = new Random(randomseed);
 				
-				 int startHour=ValuesGenerator.getRandomIntBetween(random, 1, 11);
-				 int startMinute=ValuesGenerator.getRandomIntBetween(random, 1, 11);
-				 int startDay=ValuesGenerator.getRandomIntBetween(random, 1, 11);
-				 int startMonth=ValuesGenerator.getRandomIntBetween(random, 1, 11);
-				 int startYear=ValuesGenerator.getRandomIntBetween(random, 2018, 2018);
+				 int startHour=ValuesGenerator.getRandomIntBetween(random, -30, 30);
+				 int startMinute=ValuesGenerator.getRandomIntBetween(random, -70, 70);
+				 int startDay=ValuesGenerator.getRandomIntBetween(random, -40, 40);
+				 int startMonth=ValuesGenerator.getRandomIntBetween(random, -20, 20);
+				 int startYear=ValuesGenerator.getRandomIntBetween(random, -10000, 10000);
+				 int day2=ValuesGenerator.getRandomIntBetween(random, -40, 40);
+				 int[] recurDay=ValuesGenerator.generateRandomArray(random, 100);
+				 int recurBy=ValuesGenerator.getRandomIntBetween(random, -10000, 10000);
+				 int recurInc=ValuesGenerator.getRandomIntBetween(random, -10000, 10000);
+				 int recurNum=ValuesGenerator.getRandomIntBetween(random, -10000, 10000);
 				 String title="Birthday Party";
 				 String description="This is my birthday party.";
 				 String emailAddress="xyz@gmail.com";
-
+				 
 				 //Construct a new Appointment object with the initial data	 
 				 //Construct a new Appointment object with the initial data	 
 		         Appt appt = new Appt(startHour,
@@ -85,6 +90,40 @@ public class ApptRandomTest {
 		                  title,
 		                 description,
 		                 emailAddress);
+		         
+		         appt.setValid();
+		         
+		         appt.setRecurrence(recurDay, recurBy, recurInc, recurNum);
+		         appt.setRecurrence(null, recurBy, recurInc, recurNum);
+		         appt.isOn(startDay, startMonth, startYear);
+		         appt.isOn(1, 1, 1);
+		         appt.isOn(-1, 1, 1);
+		         appt.isOn(1, -1, 1);
+		         appt.isOn(1, 1, -1);
+		         appt.isOn(-1, -1, 1);
+		         appt.isOn(1, -1, -1);
+		         appt.isOn(-1, 1, -1);
+		         appt.isOn(-1, -1, -1);
+		         
+		         startMinute = -100;
+		         startHour = -50;
+		         startDay = -5;
+		         startYear = -2000;
+		        		 
+		         
+		         Appt appt2 = new Appt(startHour,
+		                  startMinute ,
+		                  startDay ,
+		                  startMonth ,
+		                  startYear ,
+		                  title,
+		                 description,
+		                 emailAddress);
+		         
+		         int hour = -5;
+		         int min = -100;
+		         appt2.setValid();
+		         appt2.isOn(startDay, startMonth, startYear);
 
 			 if(!appt.getValid())continue;
 			for (int i = 0; i < NUM_TESTS; i++) {
