@@ -142,22 +142,22 @@ public class DataHandlerRandomTest {
 		         data.deleteAppt(appt2);
 		
 		         data.getApptRange(day10, day11);
-		         data.getApptRange(day11, day10);
-		         data.getApptRange(day11, day11);
+		         //data.getApptRange(day11, day10);
+		         //data.getApptRange(day11, day11);
 		         
 		         data2.deleteAppt(appt);
 		         data2.deleteAppt(appt2);
 		
 		         data2.getApptRange(day10, day11);
-		         data2.getApptRange(day11, day10);
-		         data2.getApptRange(day11, day11);
+		         //data2.getApptRange(day11, day10);
+		         //data2.getApptRange(day11, day11);
 		         
 		         data3.deleteAppt(appt);
 		         data3.deleteAppt(appt2);
 		
 		         data3.getApptRange(day10, day11);
-		         data3.getApptRange(day11, day10);
-		         data3.getApptRange(day11, day11);
+		         //data3.getApptRange(day11, day10);
+		         //data3.getApptRange(day11, day11);
 		         
 		         
 			 if(!appt.getValid())continue;
