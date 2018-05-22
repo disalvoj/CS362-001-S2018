@@ -135,31 +135,38 @@ public class DataHandlerRandomTest {
 		         
 		         DataHandler data = new DataHandler();
 		         DataHandler data2 = new DataHandler("file_name");
-		         DataHandler data3 = new DataHandler("file_name", false);
+		         DataHandler data3 = new DataHandler("file_name2", false);
 		  
+		         data.saveAppt(appt);
+		         data.saveAppt(appt2);
 		         
-		         data.deleteAppt(appt);
-		         data.deleteAppt(appt2);
-		
 		         data.getApptRange(day10, day11);
 		         //data.getApptRange(day11, day10);
 		         //data.getApptRange(day11, day11);
+		      
+		         data.deleteAppt(appt);
+		         data.deleteAppt(appt2);
+			       
+		         data2.saveAppt(appt);
+		         data2.saveAppt(appt2);
 		         
-		         data2.deleteAppt(appt);
-		         data2.deleteAppt(appt2);
-		
 		         data2.getApptRange(day10, day11);
 		         //data2.getApptRange(day11, day10);
 		         //data2.getApptRange(day11, day11);
 		         
-		         data3.deleteAppt(appt);
-		         data3.deleteAppt(appt2);
+		         data2.deleteAppt(appt);
+		         data2.deleteAppt(appt2);
 		
+		         data3.saveAppt(appt);
+		         data3.saveAppt(appt2);
+		         
 		         data3.getApptRange(day10, day11);
 		         //data3.getApptRange(day11, day10);
 		         //data3.getApptRange(day11, day11);
 		         
-		         
+		         data3.deleteAppt(appt);
+		         data3.deleteAppt(appt2);
+		      
 			 if(!appt.getValid())continue;
 			for (int i = 0; i < NUM_TESTS; i++) {
 					String methodName = DataHandlerRandomTest.RandomSelectMethod(random);
