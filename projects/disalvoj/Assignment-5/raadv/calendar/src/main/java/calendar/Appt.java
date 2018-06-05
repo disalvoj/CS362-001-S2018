@@ -283,7 +283,7 @@ public class Appt{
      */
     public boolean isOn(int day, int month, int year) {
         return (day == getStartDay() && month == getStartMonth() 
-                && year == getStartYear());
+                && year == getStartDay()); //bug
     }
     
     /**
@@ -359,7 +359,7 @@ public class Appt{
     private String represntationApp(){
         String half = (getStartHour() > 11) ? "pm" : "am";
         int printableHour = getStartHour();
-        if (printableHour > 11)
+        if (printableHour >= 11) //bug
         {
             printableHour -= 12;
         }
