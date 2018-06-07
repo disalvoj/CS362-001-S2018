@@ -86,7 +86,7 @@ public class UrlValidatorTest extends TestCase {
    
    public void testIsValid()
    {
-	   String schemes[] = new String[5];
+	   	  String schemes[] = new String[5];
 	   	  schemes[0]= "";
 	      schemes[1]= "http://";
 	      schemes[2]= "http:";
@@ -122,12 +122,14 @@ public class UrlValidatorTest extends TestCase {
 	       
 	       String testUrl;
 	       boolean result;
+	       int counter = 0;
 	       
 	       for(int i = 0; i < 5; i++ ) {
 	    	   for(int j = 0; j < 5; j++) {
 	    		   for(int k = 0; k < 4; k++) {
 	    			   for(int l = 0; l < 4; l++) {
 	    				   for(int m = 0; m < 3; m++) {
+	    					   counter++;
 	    					   
 	    					   testUrl = schemes[i] + authority[j] + port[k] + path[l] + query[m];
 	    					   
@@ -138,6 +140,7 @@ public class UrlValidatorTest extends TestCase {
 	    						 //  System.out.print(result);
 	    						   System.out.print("\n");
 	    					   }
+	    					   System.out.print(counter);
 	    				   }
 	    			   }
 	    		   }
